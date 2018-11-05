@@ -34,35 +34,23 @@ def user_guidance(value):
     elif value >= 2:
         collatz(value)
 
-def num_or_let(value): # function to check if the user input is a number(integer) or a letter(string)
-    try:
-        value = int(input('Type a positive integer number: '))
-    except ValueError:
-        print("Letter's are not numbers, read the instructions plz pl0x")
-    except TypeError:
-        print("?")
-    if type(value) == None:
-        print("N")
-    elif type(value) == int:
-        user_guidance(value)
-
-##value = None # dummy value
-
-#Input Validation
 #A function to get the users input
 def userInput():
     print('Type a positive integer number: ')
     return input()
 
-#Validation for numbers
+#User input validation
 def userInValNum(): #userInputValidationNumber
-    userIn = userInput()
-    try:
-        int(userIn)
-    except ValueError:
-        print('oups something went wrong, try again')
-        userInput()
-    else:
-        return userIn
+    Pass = None
+    while Pass != 1:
+        userIn = userInput()
+        try:
+            int(userIn)
+        except ValueError:
+            print('oups something went wrong, try again')
+            Pass = 0
+        else:
+            return userIn
+
 
 user_guidance(userInValNum())
