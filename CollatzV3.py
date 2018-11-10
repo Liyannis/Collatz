@@ -5,7 +5,8 @@ print('''The Collatz conjecture is a conjecture in mathematics that concerns a s
       The conjecture is that no matter what value of n, the sequence will always reach 1.''')
 
 print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
-
+#https://trinket.io/python/d3bdba0162
+#https://github.com/Liyannis/Collatz
 def collatz(value):
     while value != 1:
         if odd_or_even(value) == 0:
@@ -22,17 +23,6 @@ def odd_or_even(intNumber):
         return num_test
     elif num_test == 1:
         return num_test
-
-##def user_guidance(value):
-##    value = int(value)
-##    if value == 1:
-##        print('if you input 1 the script will stop running as it outputs 1.')
-##    elif value == 0:
-##        print('with 0 as an input the script will be stuck in an endless loop')
-##    elif value <= 0:
-##        print("negative numbers end up in a never ending loop")
-##    elif value >= 2:
-##        collatz(value)
 
 #A function to get the users input
 def userInput():
