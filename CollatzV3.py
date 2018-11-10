@@ -5,8 +5,8 @@ print('''The Collatz conjecture is a conjecture in mathematics that concerns a s
       The conjecture is that no matter what value of n, the sequence will always reach 1.''')
 
 print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
-#https://trinket.io/python/d3bdba0162
-#https://github.com/Liyannis/Collatz
+# https://trinket.io/python/d3bdba0162
+# https://github.com/Liyannis/Collatz
 def collatz(value):
     while value != 1:
         if odd_or_even(value) == 0:
