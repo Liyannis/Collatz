@@ -23,16 +23,16 @@ def odd_or_even(intNumber):
     elif num_test == 1:
         return num_test
 
-def user_guidance(value):
-    value = int(value)
-    if value == 1:
-        print('if you input 1 the script will stop running as it outputs 1.')
-    elif value == 0:
-        print('with 0 as an input the script will be stuck in an endless loop')
-    elif value <= 0:
-        print("negative numbers end up in a never ending loop")
-    elif value >= 2:
-        collatz(value)
+##def user_guidance(value):
+##    value = int(value)
+##    if value == 1:
+##        print('if you input 1 the script will stop running as it outputs 1.')
+##    elif value == 0:
+##        print('with 0 as an input the script will be stuck in an endless loop')
+##    elif value <= 0:
+##        print("negative numbers end up in a never ending loop")
+##    elif value >= 2:
+##        collatz(value)
 
 #A function to get the users input
 def userInput():
@@ -50,7 +50,16 @@ def userInValNum(): #userInputValidationNumber
             print('oups something went wrong, try again')
             Pass = 0
         else:
-            return userIn
+            value = int(userIn)
+            if value == 1:
+                print('if you input 1 the script will stop running as it outputs 1.')
+            elif value == 0:
+                print('with 0 as an input the script will be stuck in an endless loop')
+            elif value <= 0:
+                print("negative numbers end up in a never ending loop")
+            elif value >= 2:
+                return int(userIn)
 
 
-user_guidance(userInValNum())
+collatz(userInValNum())
+print('end')
