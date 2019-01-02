@@ -16,24 +16,6 @@ print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
 # https://trinket.io/python/d3bdba0162
 # https://github.com/Liyannis/Collatz
 
-testedNumbers = []
-YES = ['y', 'Y']
-def testedNumbersCheck(value):
-    if value in testedNumbers:
-        print('number ' + str(value) + ' has been tested in the past')
-        print('Do you want to stop?')
-        print('y/Y to stop or press Enter to continue')
-        userAnswer = input('')
-        if userAnswer in YES:
-            print('if you want to rerun the script but not compute for the numbers that you already tested, \nthen simply copy-paste the testedNumbers below into the code')
-            print(testedNumbers)
-            exit()
-        else:
-            pass
-    else:
-        testedNumbers.append(value)
-        
-
 def collatz(value):
     testedNumbersCheck(value)
     while value != 1:
@@ -46,6 +28,46 @@ def collatz(value):
             testedNumbersCheck(value)
             print(value, 'odd')
         continue
+
+#TODO
+#def runMode():
+    '''ask user if he wants to use:
+       A) handsfree approach & watch the numbers,
+       B) check for already tested numbers in the testedNumbers list
+       C) run for a single number''' 
+    print('''Hello, this script supports 3 ways to run the Collatz conjecture.\n
+          in what mode do you want to run the script?\n
+          1: Full auto
+          2:
+          3: ''')
+    uC = int(input()) #userChoice
+    if uC == 1:
+        pass
+    elif uC == 2:
+        pass
+    elif uC == 3:
+        pass
+
+
+testedNumbers = []
+YES = ['y', 'Y']
+def testedNumbersCheck(value):
+    if value in testedNumbers:
+        print('number ' + str(value) + ' has been tested in the past')
+        print('Do you want to stop?')
+        print('y/Y to stop or press Enter to continue')
+        userAnswer = input('')
+        if userAnswer in YES:
+            print('''if you want to rerun the script but not compute
+                     for the numbers that you already tested, \n
+                     then simply copy-paste the testedNumbers below into the code''')
+            print(testedNumbers)
+            exit()
+        else:
+            pass
+    else:
+        testedNumbers.append(value)
+        
 
 def odd_or_even(intNumber):
     num_test = (intNumber % 2)
@@ -78,5 +100,6 @@ def userInValNum(): #userInputValidationNumber
 
 collatz(userInValNum())
 print('end')
-print('if you want to rerun the script but not compute for the numbers that you already tested, \nthen simply copy-paste the testedNumbers below into the code')
+print('''if you want to rerun the script but not compute for the numbers that you already tested, \n
+         then simply copy-paste the testedNumbers below into the code''')
 print(testedNumbers)
