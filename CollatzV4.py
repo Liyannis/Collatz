@@ -13,23 +13,22 @@ print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
 # https://trinket.io/python/d3bdba0162
 # https://github.com/Liyannis/Collatz
 
-memoryList = []
+testedNumbers = []
 
-
+def testedNumbersCheck():
+    if value in testedNumbers:
+        print('this number has been tested in the past: ' + str(value))
+        pass
+        
 
 def collatz(value):
     while value != 1:
-        if value in memoryList:
-#            print('this number has been tested in the past: ' + str(value))
-            pass
-        elif odd_or_even(value) == 0:
+        if odd_or_even(value) == 0:
             value = (value // 2)
             print(value, 'even')
-            memoryList.append(value)
         elif odd_or_even(value) == 1:
             value = (3 * value + 1)
             print(value, 'odd')
-            memoryList.append(value)
         continue
 
 def odd_or_even(intNumber):
@@ -63,5 +62,5 @@ def userInValNum(): #userInputValidationNumber
 
 collatz(userInValNum())
 print('end')
-print('if you want to rerun the script but not compute for the numbers that you already tested, \nthen simply copy-paste the memoryList below into the code')
-print(memoryList)
+print('if you want to rerun the script but not compute for the numbers that you already tested, \nthen simply copy-paste the testedNumbers below into the code')
+print(testedNumbers)
