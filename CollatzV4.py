@@ -2,7 +2,10 @@
 #TODO: implement a memoryList (after the script finishes it should print a list of the numbers
 #      that already occured/tested) that you can add to the same memoryList so that the next time
 #      the script is run it would ignore already tested numbers.
-
+# i am running in an endless loop when i add the .append code within the collatz function.
+# one idea is
+# 1: ask if you want to use the testedNumbers list before starting.
+# 2: when you encounter a tested number ask to skip or not.
 print('''The Collatz conjecture is a conjecture in mathematics that concerns a sequence defined as follows:
       start with any positive integer n. Then each term is obtained from the previous term as follows:
       if the previous term is even, the next term is one half the previous term.
@@ -14,20 +17,33 @@ print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
 # https://github.com/Liyannis/Collatz
 
 testedNumbers = []
-
-def testedNumbersCheck():
+YES = ['y', 'Y']
+def testedNumbersCheck(value):
     if value in testedNumbers:
-        print('this number has been tested in the past: ' + str(value))
-        pass
+        print('number ' + str(value) + ' has been tested in the past')
+        print('Do you want to stop?')
+        print('y/Y to stop or press Enter to continue')
+        userAnswer = input('')
+        if userAnswer in YES:
+            print('if you want to rerun the script but not compute for the numbers that you already tested, \nthen simply copy-paste the testedNumbers below into the code')
+            print(testedNumbers)
+            exit()
+        else:
+            pass
+    else:
+        testedNumbers.append(value)
         
 
 def collatz(value):
+    testedNumbersCheck(value)
     while value != 1:
         if odd_or_even(value) == 0:
             value = (value // 2)
+            testedNumbersCheck(value)
             print(value, 'even')
         elif odd_or_even(value) == 1:
             value = (3 * value + 1)
+            testedNumbersCheck(value)
             print(value, 'odd')
         continue
 
