@@ -22,15 +22,25 @@ def collatz(value):
         if odd_or_even(value) == 0:
             value = (value // 2)
             testedNumbersCheck(value)
-            print(value, 'even')
         elif odd_or_even(value) == 1:
             value = (3 * value + 1)
             testedNumbersCheck(value)
-            print(value, 'odd')
         continue
 
-#TODO
-#def runMode():
+
+def odd_or_even(intNumber):
+    num_test = (intNumber % 2)
+    if num_test == 2 or num_test == 0:
+        print(intNumber, 'even')
+        return num_test
+    elif num_test == 1:
+        print(intNumber, 'odd')
+        return num_test
+    
+
+
+# TODO
+def runMode():
     '''ask user if he wants to use:
        A) handsfree approach & watch the numbers,
        B) check for already tested numbers in the testedNumbers list
@@ -68,13 +78,6 @@ def testedNumbersCheck(value):
     else:
         testedNumbers.append(value)
         
-
-def odd_or_even(intNumber):
-    num_test = (intNumber % 2)
-    if num_test == 2 or num_test == 0:
-        return num_test
-    elif num_test == 1:
-        return num_test
 
 #User input validation
 def userInValNum(): #userInputValidationNumber
