@@ -19,22 +19,24 @@ print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
 def collatz(value):
     testedNumbersCheck(value)
     while value != 1:
-        if odd_or_even(value) == 0:
+        test = odd_or_even(value)
+        if test == 0:
             value = (value // 2)
             testedNumbersCheck(value)
-        elif odd_or_even(value) == 1:
+        elif test == 1:
             value = (3 * value + 1)
             testedNumbersCheck(value)
         continue
 
 
-def odd_or_even(intNumber):
-    num_test = (intNumber % 2)
+
+def odd_or_even(number):
+    num_test = (number % 2)
     if num_test == 2 or num_test == 0:
-        print(intNumber, 'even')
+        print(number, 'even')
         return num_test
     elif num_test == 1:
-        print(intNumber, 'odd')
+        print(number, 'odd')
         return num_test
     
 
@@ -52,17 +54,40 @@ def runMode():
           3: ''')
     uC = int(input()) #userChoice
     if uC == 1:
-        pass
+        global full_auto_on
+        full_auto_on = 1
+        fullAuto()
     elif uC == 2:
         pass
     elif uC == 3:
         pass
+        
+
+def fullAuto():
+    while True:
+#        testedNumbers.sort()
+        for n in range(1, len(testedNumbers)):
+            if n in testedNumbers:
+                n += 1
+                if n not in testedNumbers:
+                    collatz(n)
+                else:
+                    pass
+            else:
+                pass
 
 
-testedNumbers = []
+
 YES = ['y', 'Y']
+testedNumbers = []
+full_auto_on = 0
 def testedNumbersCheck(value):
-    if value in testedNumbers:
+    if full_auto_on == 1:
+        if value in testedNumbers:
+            print('skipping ' + str(value) + ' as it has been tested')
+        else:
+            pass
+    elif value in testedNumbers:
         print('number ' + str(value) + ' has been tested in the past')
         print('Do you want to stop?')
         print('y/Y to stop or press Enter to continue')
@@ -74,13 +99,14 @@ def testedNumbersCheck(value):
             print(testedNumbers)
             exit()
         else:
-            pass
+            value += 1
+            return value
     else:
         testedNumbers.append(value)
         
 
 #User input validation
-def userInValNum(): #userInputValidationNumber
+def userInNumVal(): #userInputNumberValidation
     Pass = None
     while Pass != 1:
         userIn = input('Type a positive integer number: ')
@@ -101,8 +127,10 @@ def userInValNum(): #userInputValidationNumber
                 return int(userIn)
 
 
-collatz(userInValNum())
+
+collatz(userInNumVal())
 print('end')
-print('''if you want to rerun the script but not compute for the numbers that you already tested, \n
-         then simply copy-paste the testedNumbers below into the code''')
-print(testedNumbers)
+#print('''if you want to rerun the script but not compute for the numbers that you already tested, \n
+#         then simply copy-paste the testedNumbers below into the code''')
+#print(testedNumbers)
+runMode()
