@@ -13,7 +13,8 @@ print('''The Collatz conjecture is a conjecture in mathematics that concerns a s
       The conjecture is that no matter what number of n, the sequence will always reach 1.''')
 
 print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
-# https://trinket.io/python/d3bdba0162
+# V3   https://trinket.io/python/d3bdba0162
+# V4.2 https://trinket.io/python/c5d06fac04
 # https://github.com/Liyannis/Collatz
 
 def collatz(number):
@@ -79,7 +80,7 @@ def userInNumVal(): #userInputNumberValidation
         userIn = input('Type a positive integer number: ')
         try:
             int(userIn)
-        except numberError:
+        except ValueError:
             print('oups something went wrong, try again')
             Pass = 0
         else:
@@ -133,5 +134,5 @@ collatz(userInNumVal())
 print('end')
 #print('''if you want to rerun the script but not compute for the numbers that you already tested, \n
 #         then simply copy-paste the testedNumbers below into the code''')
-#print(testedNumbers)
+print(testedNumbers)
 runMode()
