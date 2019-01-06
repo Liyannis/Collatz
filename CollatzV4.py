@@ -25,13 +25,13 @@ def collatz(number):
             print(number, 'even')
             number = (number // 2)
             if testedNumbersCheck(number) == 0:
-                pass
+                break
         elif test == 1:
             testedNumbers.append(number)
             print(number, 'odd')
             number = (3 * number + 1)
             if testedNumbersCheck(number) == 0:
-                pass
+                break
         continue
 
 
@@ -44,7 +44,7 @@ def odd_or_even(number):
         return num_test
     
 
-YES = ['y', 'Y']
+YES = ['y', 'Y', 'YES', 'yes']
 testedNumbers = []
 full_auto_on = 0
 def testedNumbersCheck(number):
@@ -103,8 +103,8 @@ def runMode():
     print('''Hello, this script supports 3 ways to run the Collatz conjecture.\n
           in what mode do you want to run the script?\n
           1: Full auto
-          2: Semi-auto?
-          3: Manual ''')
+          2: (not implemented yet) Semi-auto?
+          3: (not implemented yet) Manual ''')
     uC = int(input()) #userChoice
     if uC == 1:
         global full_auto_on
@@ -114,13 +114,18 @@ def runMode():
         pass
     elif uC == 3:
         pass
+    else:
+        print('Wrong choice, exiting')
+        pass
         
 
 def fullAuto():
     while True:
 #        testedNumbers.sort()
         for n in range(1, len(testedNumbers)):
-            if n in testedNumbers:
+            if len(testedNumbers) in range(0, 1000000, 1000):
+                print_1000()
+            elif n in testedNumbers:
                 n += 1
                 if n not in testedNumbers:
                     collatz(n)
@@ -128,6 +133,16 @@ def fullAuto():
                     pass
             else:
                 pass
+
+
+def print_1000():
+    print('Do you want to print the tested numbers?')
+    print('y/Y to print or press Enter to continue')
+    choice = input()
+    if choice in YES:
+        print(testedNumbers)
+    else:
+        pass
 
 
 collatz(userInNumVal())
