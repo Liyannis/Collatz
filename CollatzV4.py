@@ -121,14 +121,12 @@ def runMode():
 
 def fullAuto():
     while True:
-#        testedNumbers.sort()
         for n in range(1, len(testedNumbers)):
-            if len(testedNumbers) in range(0, 1000000, 1000):
-                print_1000()
-            elif n in testedNumbers:
+            if n in testedNumbers:
                 n += 1
                 if n not in testedNumbers:
                     collatz(n)
+                    print_1000()
                 else:
                     pass
             else:
@@ -136,13 +134,16 @@ def fullAuto():
 
 
 def print_1000():
-    print('Do you want to print the tested numbers?')
-    print('y/Y to print or press Enter to continue')
-    choice = input()
-    if choice in YES:
-        print(testedNumbers)
-    else:
-        pass
+    if len(testedNumbers) in range(0, 1000000, 50):
+        #change the number 1000 if you want a smaller list to print
+        print('Do you want to print the tested numbers?')
+        print('y/Y to print or press Enter to continue')
+        choice = input()
+        if choice in YES:
+            print(testedNumbers)
+            input('Just press Enter to continue')
+        else:
+            pass
 
 
 collatz(userInNumVal())
