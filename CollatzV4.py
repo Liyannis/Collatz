@@ -15,6 +15,7 @@ print('''The Collatz conjecture is a conjecture in mathematics that concerns a s
 print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
 # V3   https://trinket.io/python/d3bdba0162
 # V4.2 https://trinket.io/python/c5d06fac04
+# V4.3 https://trinket.io/python/8ba4d67136
 # https://github.com/Liyannis/Collatz
 
 def collatz(number):
@@ -22,12 +23,14 @@ def collatz(number):
         test = odd_or_even(number)
         if test == 0:
             testedNumbers.append(number)
+            print_tested()
             print(number, 'even')
             number = (number // 2)
             if testedNumbersCheck(number) == 0:
                 break
         elif test == 1:
             testedNumbers.append(number)
+            print_tested()
             print(number, 'odd')
             number = (3 * number + 1)
             if testedNumbersCheck(number) == 0:
@@ -126,17 +129,18 @@ def fullAuto():
                 n += 1
                 if n not in testedNumbers:
                     collatz(n)
-                    print_1000()
                 else:
                     pass
             else:
                 pass
 
 
-def print_1000():
-    if len(testedNumbers) in range(0, 1000000, 50):
-        #change the number 1000 if you want a smaller list to print
-        print('Do you want to print the tested numbers?')
+def print_tested():
+    """Prints the already tested numbers"""
+    tested_nums_quantity = len(testedNumbers)
+    if tested_nums_quantity in range(0, 1000000, 100) and tested_nums_quantity != 0:
+        #change the number '100' above withing the range function to change the frequency of the print question
+        print('Do you want to print the ' + str(tested_nums_quantity) + ' tested numbers?')
         print('y/Y to print or press Enter to continue')
         choice = input()
         if choice in YES:
