@@ -20,7 +20,7 @@ print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
 
 def collatz(number):
     while number != 1 and testedNumbersCheck(number) != 0:
-        test = odd_or_even(number)
+        test = number % 2
         if test == 0:
             testedNumbers.append(number)
             print_tested()
@@ -37,17 +37,9 @@ def collatz(number):
                 break
         continue
 
-
-
-def odd_or_even(number):
-    num_test = (number % 2)
-    if num_test == 2 or num_test == 0:
-        return num_test
-    elif num_test == 1:
-        return num_test
     
 
-YES = ['y', 'Y', 'YES', 'yes']
+YES = ['y', 'yes']
 testedNumbers = []
 full_auto_on = 0
 def testedNumbersCheck(number):
@@ -63,7 +55,7 @@ def testedNumbersCheck(number):
         print('Do you want to stop?')
         print('y/Y to stop or press Enter to continue')
         userAnswer = input('')
-        if userAnswer in YES:
+        if userAnswer.lower() in YES:
             print('''if you want to rerun the script but not compute
                      for the numbers that you already tested, \n
                      then simply copy-paste the testedNumbers below into the code''')
@@ -96,6 +88,7 @@ def userInNumVal(): #userInputNumberValidation
                 print("negative numbers end up in a never ending loop")
             elif number >= 2:
                 return int(userIn)
+            
 
 # TODO
 def runMode():
@@ -143,7 +136,7 @@ def print_tested():
         print('Do you want to print the ' + str(tested_nums_quantity) + ' tested numbers?')
         print('y/Y to print or press Enter to continue')
         choice = input()
-        if choice in YES:
+        if choice.lower() in YES:
             print(testedNumbers)
             input('Just press Enter to continue')
         else:
