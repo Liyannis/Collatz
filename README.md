@@ -1,1 +1,1 @@
-# Collatz
+This is a practice project from the chapter 3 of Automating the boring stuff with python that i keep adding as i go on with learning Python.
