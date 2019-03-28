@@ -13,10 +13,14 @@ print('''The Collatz conjecture is a conjecture in mathematics that concerns a s
       The conjecture is that no matter what number of n, the sequence will always reach 1.''')
 
 print('more information here: https://en.wikipedia.org/wiki/Collatz_conjecture')
-# V3   https://trinket.io/python/d3bdba0162
-# V4.2 https://trinket.io/python/c5d06fac04
-# V4.3 https://trinket.io/python/8ba4d67136
-# https://github.com/Liyannis/Collatz
+# https://github.com/YanSoum/Collatz
+#V1.0: https://trinket.io/python/32e27b5beb
+#V2.0: https://trinket.io/python/b1adabe04f
+#V3.0: https://trinket.io/python/d3bdba0162
+#V4.0: https://trinket.io/python/85917cb31d
+#V4.1: https://trinket.io/python/c8f3efc641
+#V4.2: https://trinket.io/python/c5d06fac04
+#V4.3: https://trinket.io/python/8ba4d67136
 
 def collatz(number):
     while number != 1 and testedNumbersCheck(number) != 0:
